@@ -161,16 +161,13 @@ public function updateProfile(Request $request)
         'telepon' => 'sometimes|required|max:13',
     ]);
 
-    // Update data profil sesuai dengan input yang diterima
     $user->nama_ibu = $request->input('nama_ibu', $user->nama_ibu);
     $user->nama_ayah = $request->input('nama_ayah', $user->nama_ayah);
     $user->alamat = $request->input('alamat', $user->alamat);
     $user->telepon = $request->input('telepon', $user->telepon);
     
-    // Simpan perubahan
     $user->save();
 
-    // Response sukses
     return response()->json(['message' => 'Profil berhasil diperbarui', 'user' => $user], 200);
 }
 }

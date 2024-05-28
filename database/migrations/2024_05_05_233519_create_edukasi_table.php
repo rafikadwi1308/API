@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('edukasi', function (Blueprint $table) {
             $table->bigIncrements('id_edukasi');
             $table->string('judul');
-            $table->string('isi');
-            $table->string('foto');
+            $table->text('isi');
             $table->timestamps();
         });
+
+        DB::statement('ALTER TABLE edukasi ADD foto LONGBLOB');
     }
 
     /**
